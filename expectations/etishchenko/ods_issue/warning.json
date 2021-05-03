@@ -1,0 +1,95 @@
+{
+  "data_asset_type": "Dataset",
+  "expectation_suite_name": "etishchenko.ods_issue.warning",
+  "expectations": [
+    {
+      "expectation_type": "expect_table_columns_to_match_set",
+      "kwargs": {
+        "column_set": [
+          "user_id",
+          "start_time",
+          "end_time",
+          "title",
+          "description",
+          "service"
+        ],
+        "exact_match": false
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_table_row_count_to_be_between",
+      "kwargs": {
+        "min_value": 1000
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_column_values_to_be_in_type_list",
+      "kwargs": {
+        "column": "title",
+        "type_list": [
+          "TEXT"
+        ]
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_column_values_to_not_be_null",
+      "kwargs": {
+        "column": "description"
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_column_values_to_be_in_set",
+      "kwargs": {
+        "column": "service",
+        "value_set": [
+          "Connect",
+          "Disconnect",
+          "Setup Environment"
+        ]
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_column_min_to_be_between",
+      "kwargs": {
+        "column": "start_time",
+        "min_value": "2012-01-01",
+        "parse_strings_as_datetimes": false,
+        "strict_min": true
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_column_max_to_be_between",
+      "kwargs": {
+        "column": "end_time",
+        "max_value": "2022-01-01",
+        "parse_strings_as_datetimes": false,
+        "strict_max": true
+      },
+      "meta": {}
+    }
+  ],
+  "meta": {
+    "citations": [
+      {
+        "batch_kwargs": {
+          "data_asset_name": "etishchenko.ods_issue",
+          "datasource": "gp",
+          "limit": 1000,
+          "schema": "etishchenko",
+          "table": "ods_issue"
+        },
+        "batch_markers": null,
+        "batch_parameters": null,
+        "citation_date": "20210503T185004.537397Z",
+        "comment": "New suite added via CLI"
+      }
+    ],
+    "great_expectations_version": "0.13.14"
+  }
+}
